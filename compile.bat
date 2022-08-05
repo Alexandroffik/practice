@@ -1,0 +1,1 @@
+g++ Practice/main.cpp Practice/core/core.cpp -o practice
