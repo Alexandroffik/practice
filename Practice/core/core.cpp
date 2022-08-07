@@ -15,7 +15,7 @@ std::string process_line(std::string line){
     }
 
     for(auto it : result){
-        auto value = *it;
+        char value = it;
         result_str += value;
     }
        
@@ -26,7 +26,7 @@ std::list<std::string> process_lines(std::list<std::string>& lines){
     std::list<std::string> process_results;
 
     for(auto it : lines){
-        auto value = *it;
+        std::string value = it;
         auto str_res = process_line(value);
         process_results.push_back(str_res);
     }
@@ -65,7 +65,7 @@ std::list<std::string> open_file(){
 
 void display_list(std::list<std::string> lines){
   for(auto it : lines)
-    std::cout << *it << std::endl;
+    std::cout << it << std::endl;
 }
 
 void error(std::string msg, bool is_fatal){

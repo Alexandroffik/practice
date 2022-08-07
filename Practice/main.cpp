@@ -32,7 +32,8 @@ int main() {
 		}
 
 		if(command == "process_file"){
-			process_file();
+			auto result = process_file();
+			display_list(result);
 			continue;
 		}
 
@@ -71,16 +72,18 @@ void create_file(){
 		return;
 	}
 	
-	while(is_end != true){
-		std::string text;
+	std::string text;
+	while(true){
+		text = "";
 		std::getline(std::cin, text);
 		if (text.length() > 100 ){
 			std::cout << "string is cut for 100 symbols" << std::endl;
 			text = text.substr(0, 100);
 		}
 		file << text << std::endl;
+		if(is_end)
+			break;
 	}
-	
 
 	file.close();
 }
