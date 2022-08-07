@@ -4,9 +4,12 @@
 #include <iomanip>
 #include <cstdlib>
 #include <fstream>
+#include <list>
+
+#include "core/core.h"
 
 
-void error(std::string msg, bool is_fatal = false);
+
 void hand_sig(int sig);
 void create_file();
 void init_sig();
@@ -28,6 +31,11 @@ int main() {
 			continue;	
 		}
 
+		if(command == "process_file"){
+			process_file();
+			continue;
+		}
+
 		if(command == "exit")
 			break;
 		
@@ -37,13 +45,6 @@ int main() {
 	// just pause before closing
 	std::cin.get();
 	return 0;
-}
-
-
-void error(std::string msg, bool is_fatal){
-	std::cout << "[ERR]:> " << msg << std::endl;
-	if(is_fatal)
-		exit(1);
 }
 
 //1.ввести имя файла	(+)
@@ -95,3 +96,12 @@ void init_sig(){
 void hand_sig(int sig){
 	is_end = true;
 }
+
+//1.вывести список файлов которые можно открыть (директория где main) (?????)
+//2.ввод имени файла который хочется открыть
+//3.открытие файла с именем
+//4.считывание строк
+//5.занос строк в список
+//6.закрытие файла
+
+
